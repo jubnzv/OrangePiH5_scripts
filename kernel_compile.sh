@@ -70,7 +70,7 @@ if [ $BUILD_MODULE = "1" ]; then
 	echo -e "\e[1;31m Compile Mali450 Module \e[0m"
 	if [ ! -d $BUILD/lib ]; then
 		mkdir -p $BUILD/lib
-	fi 
+	fi
 	make -C ${LINUX}/modules/gpu ARCH=arm64 CROSS_COMPILE=$TOOLS LICHEE_KDIR=${LINUX} LICHEE_MOD_DIR=$BUILD/lib LICHEE_PLATFORM=linux
 	echo -e "\e[1;31m Build Mali450 succeed \e[0m"
 
@@ -105,7 +105,7 @@ if [ $BUILD_KERNEL = "1" ]; then
 	## Create uEnv.txt
 	echo -e "\e[1;31m Create uEnv.txt \e[0m"
 cat <<EOF > "$BUILD/uEnv.txt"
-console=tty0 console=ttyS0,115200n8 no_console_suspend
+console=tty0 console=ttyS0,115200n8 no_console_suspend rootfstype=ext4
 kernel_filename=orangepi/uImage
 initrd_filename=initrd.img
 EOF
